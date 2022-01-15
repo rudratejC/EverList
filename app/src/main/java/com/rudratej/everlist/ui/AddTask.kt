@@ -6,14 +6,10 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.rudratej.everlist.R
-import com.rudratej.everlist.Task
-import com.rudratej.everlist.TaskViewModel
-import com.rudratej.everlist.databinding.ActivityMainBinding
+import com.rudratej.everlist.db.task.Task
+import com.rudratej.everlist.viewModel.TaskViewModel
 
 class AddTask : AppCompatActivity() {
 

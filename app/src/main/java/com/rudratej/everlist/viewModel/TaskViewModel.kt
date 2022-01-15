@@ -1,9 +1,12 @@
-package com.rudratej.everlist
+package com.rudratej.everlist.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.rudratej.everlist.db.task.Task
+import com.rudratej.everlist.db.task.TaskRepository
+import com.rudratej.everlist.db.TaskRoomDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -29,7 +32,6 @@ class TaskViewModel(application: Application):AndroidViewModel(application) {
     }
 
     fun checkTask(task: Task)=viewModelScope.launch(Dispatchers.IO) {
-
         repository.checkTask(task)
     }
 

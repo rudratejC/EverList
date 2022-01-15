@@ -1,4 +1,4 @@
-package com.rudratej.everlist
+package com.rudratej.everlist.db.task
 
 class TaskRepository(private val taskDao: TaskDao) {
 

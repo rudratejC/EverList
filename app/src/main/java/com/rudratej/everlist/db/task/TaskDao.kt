@@ -1,4 +1,4 @@
-package com.rudratej.everlist
+package com.rudratej.everlist.db.task
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

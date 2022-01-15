@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rudratej.everlist.R
-import com.rudratej.everlist.Task
-import com.rudratej.everlist.TaskViewModel
+import com.rudratej.everlist.db.task.Task
+import com.rudratej.everlist.viewModel.TaskViewModel
 
 class CompletedTasks : AppCompatActivity(),ICompletedTaskRVAdapter{
     lateinit var viewModel: TaskViewModel
@@ -43,7 +43,7 @@ class CompletedTasks : AppCompatActivity(),ICompletedTaskRVAdapter{
 
     override fun onCheckClicked(task: Task) {
         task.isCompleted=false
-        Toast.makeText(this,"${task.task} is marked undone ", Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"${task.task} is marked undone ", Toast.LENGTH_SHORT).show()
         viewModel.checkTask(task)
     }
 }

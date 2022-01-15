@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.Fragment_Task">
+    tools:context=".ui.fragments.Fragment_Note">
+
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/NotetextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="42dp"
-        android:text="Tasks"
+        android:text="Notes"
         android:layout_marginBottom="100dp"
         android:textColor="@color/black"
         android:textSize="28sp"
@@ -22,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/addTasksBtn"
+        android:id="@+id/NoteaddTasksBtn"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
@@ -32,21 +33,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/completedBtn"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginRight="12dp"
-        android:background="@drawable/btn_shape"
-        android:src="@drawable/ic_baseline_check_circle_white_24"
-        app:layout_constraintEnd_toStartOf="@+id/addTasksBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/completedBtn"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:layout_marginRight="12dp"-->
+<!--        android:background="@drawable/btn_shape"-->
+<!--        android:src="@drawable/ic_baseline_check_circle_white_24"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/NoteaddTasksBtn"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />-->
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/taskRV"
+        android:id="@+id/noteRV"
         android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -54,8 +55,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:listitem="@layout/task_tile" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/NotetextView"
+        tools:listitem="@layout/note_tile" />
 </androidx.constraintlayout.widget.ConstraintLayout>

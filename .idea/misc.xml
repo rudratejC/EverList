@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.2640625" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_delete_red_24.xml" value="0.2564814814814815" />
         <entry key="app/src/main/res/drawable/btn_shape.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/drawable/ic_baseline_check_circle_red_24.xml" value="0.24259259259259258" />
@@ -11,9 +12,13 @@
         <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_completed_tasks.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/add_task.xml" value="0.1" />
         <entry key="app/src/main/res/layout/completed_task_tile.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment__note.xml" value="0.11093462019881689" />
+        <entry key="app/src/main/res/layout/fragment__shop_list.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment_task_fragment.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/note_tile.xml" value="0.39537696362779295" />
         <entry key="app/src/main/res/layout/task_tile.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.24895833333333334" />
       </map>

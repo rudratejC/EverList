@@ -1,23 +1,18 @@
 package com.rudratej.everlist.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import com.rudratej.everlist.R
-import com.rudratej.everlist.Task
-import com.rudratej.everlist.TaskViewModel
+import com.rudratej.everlist.viewModel.TaskViewModel
 import com.rudratej.everlist.databinding.ActivityMainBinding
+import com.rudratej.everlist.ui.fragments.Fragment_Note
+import com.rudratej.everlist.ui.fragments.Fragment_ShopList
+import com.rudratej.everlist.ui.fragments.Fragment_Task
 
 
-class MainActivity : AppCompatActivity(), ITaskRVAdapter {
+class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var viewModel: TaskViewModel
@@ -27,38 +22,74 @@ class MainActivity : AppCompatActivity(), ITaskRVAdapter {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.addTasksBtn.setOnClickListener{
-            startActivity(Intent(this,AddTask::class.java))
-        }
+        val taskFragment=Fragment_Task(application)
+        val noteFragment=Fragment_Note()
+        val shopListFragment=Fragment_ShopList()
 
-        binding.completedBtn.setOnClickListener{
-            startActivity(Intent(this,CompletedTasks::class.java))
-        }
+        setCurrentFragment(taskFragment)
 
-        val rv=findViewById<RecyclerView>(R.id.taskRV)
-        rv.layoutManager=LinearLayoutManager(this)
-        val adapter= TasksRVAdapter(this,this
-        )
-        rv.adapter=adapter
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.mi_notes -> {
+                    setCurrentFragment(noteFragment)
+                }
+                R.id.mi_tasks -> {
+                    setCurrentFragment(taskFragment)
+                }
+                R.id.mi_shopping_list->{
+                    setCurrentFragment(shopListFragment)
+                }
 
-        viewModel=ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(
-            TaskViewModel::class.java)
-        viewModel.alltasks.observe(this, Observer {
-            it?.let{
-                adapter.updateList(it)
             }
-        })
+            true
+        }
+
+
+
+
+//        binding.addTasksBtn.setOnClickListener{
+//            startActivity(Intent(this,AddTask::class.java))
+//        }
+//
+//        binding.completedBtn.setOnClickListener{
+//            startActivity(Intent(this,CompletedTasks::class.java))
+//        }
+//
+//        val rv=findViewById<RecyclerView>(R.id.taskRV)
+//        rv.layoutManager=LinearLayoutManager(this)
+//        val adapter= TasksRVAdapter(this,this
+//        )
+//        rv.adapter=adapter
+//
+//        viewModel=ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(
+//            TaskViewModel::class.java)
+//        viewModel.alltasks.observe(this, Observer {
+//            it?.let{
+//                adapter.updateList(it)
+//            }
+//        })
 
     }
-    override fun onItemClicked(task: Task) {
-        viewModel.deleteTask(task)
-        Toast.makeText(this,"${task
-            .task} deleted successfully",Toast.LENGTH_LONG).show()
+
+    private fun setCurrentFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment,fragment)
+            commit()
+        }
     }
 
-    override fun onCheckClicked(task: Task) {
-        task.isCompleted=true
-        Toast.makeText(this,"${task.task} is marked done ", Toast.LENGTH_LONG).show()
-        viewModel.checkTask(task)
+    public fun getVM():ViewModel{
+        return viewModel
     }
+//    override fun onItemClicked(task: Task) {
+//        viewModel.deleteTask(task)
+//        Toast.makeText(this,"${task
+//            .task} deleted successfully",Toast.LENGTH_LONG).show()
+//    }
+//
+//    override fun onCheckClicked(task: Task) {
+//        task.isCompleted=true
+//        Toast.makeText(this,"${task.task} is marked done ", Toast.LENGTH_LONG).show()
+//        viewModel.checkTask(task)
+//    }
 }
